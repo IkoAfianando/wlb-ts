@@ -6,6 +6,9 @@ import { ConfigModule } from '@nestjs/config';
 import { BlogModule } from './blog/blog.module';
 
 @Module({
-  imports: [AuthModule, UserModule, PrismaModule, ConfigModule, BlogModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }), AuthModule, UserModule, PrismaModule, BlogModule],
 })
-export class AppModule {}
+export class AppModule { }
